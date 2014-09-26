@@ -10,6 +10,7 @@ function average(array) {
 }
 
 // A work in progress to abstract the grouping operation.
+// Not yet in use.
 function groupBy(array, groupFilter) {
 	var newArray = [];
 	for(var i = 0; i < array.length; i++)
@@ -52,16 +53,14 @@ function createCenturies(ancestryFile) {
 	}
 }
 
+// Function to print the century and average age
+function printAverages(centuriesArray) {
+    for(var century in centuriesArray) {
+	var resultString = average(centuriesArray[century].ages);
+	console.log(centuriesArray[century].centuryName + ": " + parseFloat(resultString).toFixed(1));
+    }
+}
+
 createCenturies(ancestry);
-console.log(centuries);
-
-/*
-var result = average(groupBy(ancestry, function(person) {
-	for (var i = 0; i < centuries.length; i++) {
-		if(Math.ceil(person.died / 100) == centuries[i])
-			return person.died - person.born;
-	}
-}));
-
-console.log(centuries[0] + ": " + parseFloat(result).toFixed(1));
-*/
+printAverages(centuries);
+// console.log(centuries);
