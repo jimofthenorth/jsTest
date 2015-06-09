@@ -64,3 +64,5 @@ function printAverages(centuriesArray) {
 createCenturies(ancestry);
 printAverages(centuries);
 // console.log(centuries);
+
+// another comment
